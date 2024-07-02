@@ -93,7 +93,7 @@ class robot:
             ## 3. If either of the distances, dx or dy, fall outside of the internal var, measurement_range
             ##    then we cannot record them; if they do fall in the range, then add them to the measurements list
             ##    as list.append([index, dx, dy]), this format is important for data creation done later
-            if (dx_noise > self.measurement_range or dy_noise > self.measurement_range):
+            if (abs(dx_noise) > self.measurement_range or abs(dy_noise) > self.measurement_range):
                 warnings.warn(f"dx = {dx_noise} or dy = {dy_noise} falls outside max measurement range of {self.measurement_range}. Ignored.")
             else:
                 measurements.append([i, dx, dy])
